@@ -8,43 +8,43 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Engineering Monochrome Theme - Dark Mode First */
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
+    /* Minimalist Engineering Dark Mode */
+    --background: 0 0% 5%;  /* #0D0D0D */
+    --foreground: 210 20% 98%;  /* #F9FAFB */
 
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 9%;  /* #161616 */
+    --card-foreground: 210 20% 98%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 210 20% 98%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 4%;
+    --primary: 243 75% 59%;  /* #4F46E5 Indigo */
+    --primary-foreground: 210 20% 98%;
 
     --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary-foreground: 210 20% 98%;
 
     --muted: 0 0% 12%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 0 0% 16%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 243 75% 59%;
+    --accent-foreground: 210 20% 98%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 210 20% 98%;
 
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 0 0% 98%;
+    --ring: 243 75% 59%;
 
     --radius: 0.75rem;
 
-    /* Glassmorphism */
-    --glass-bg: 0 0% 8% / 0.6;
-    --glass-border: 0 0% 25%;
+    /* Enhanced Glassmorphism */
+    --glass-bg: 0 0% 9% / 0.7;
+    --glass-border: 0 0% 30%;
     
     /* Grid Pattern */
-    --grid-color: 0 0% 15%;
+    --grid-color: 0 0% 12%;
   }
 }
 

@@ -2,15 +2,15 @@
 export const profile = {
   name: "Bonsen",
   role: "Creative Developer",
-  shortBio: "Building immersive web experiences powered by clean engineering and modern design.",
+  shortBio: "I craft fast, elegant digital experiences with clean engineering and modern UI principles.",
   location: "Ethiopia",
   resumeUrl: "",
   profileImage: "https://res.cloudinary.com/dqichbso7/image/upload/v1763968552/tcxdxzbmsi4yghzeksnq.png"
 };
 
 export const heroData = {
-  headline: "Creative Developer",
-  subtext: "Building immersive web experiences powered by clean engineering and modern design.",
+  headline: "Hi, I'm Bonsen — a Creative Developer.",
+  subtext: "I craft fast, elegant digital experiences with clean engineering and modern UI principles. Currently exploring interactive 3D web scenes.",
   imageUrl: "https://res.cloudinary.com/dqichbso7/image/upload/v1763968552/tcxdxzbmsi4yghzeksnq.png",
 };
 
@@ -28,18 +28,16 @@ export const skills = [
   "JavaScript",
   "Firebase",
   "Figma",
-  "C++",
   "Python",
-  "UI/UX",
-  "Blender",
-  "Three.js"
+  "Three.js",
+  "Blender"
 ];
 
 export const projects = [
   {
     id: 1,
     title: "PcPass",
-    description: "A comprehensive PC registration management system with real-time tracking and user authentication.",
+    description: "PC registration management system.",
     imageUrl: "https://res.cloudinary.com/dqichbso7/image/upload/v1763967425/nmclycpvo07bau5y2ex0.png",
     tags: ["React", "Management", "System"],
     link: null,
@@ -48,7 +46,7 @@ export const projects = [
   {
     id: 2,
     title: "Sekur-Labs",
-    description: "Interactive Cybersecurity Learning platform with advanced threat detection and monitoring capabilities.",
+    description: "Interactive Cybersecurity Learning Platform.",
     imageUrl: "https://res.cloudinary.com/dqichbso7/image/upload/v1763966954/nedq7d7ajhcskbyclk4v.png",
     tags: ["React", "SQLite", "Security"],
     link: "https://sekur-labs.vercel.app/",
