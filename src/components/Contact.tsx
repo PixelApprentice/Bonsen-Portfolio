@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { contactInfo } from "@/data/content";
+import { Github, Mail } from "lucide-react";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -39,6 +40,30 @@ const Contact = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{contactInfo.title}</h2>
           <p className="text-muted-foreground text-lg">{contactInfo.description}</p>
+          
+          {/* Social Links */}
+          <div className="flex justify-center gap-4 mt-6">
+            <motion.a
+              href={`mailto:${contactInfo.email}`}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="glass-card p-3 hover:bg-card/80 transition-colors"
+            >
+              <Mail className="w-5 h-5" />
+            </motion.a>
+            {contactInfo.socials?.github && (
+              <motion.a
+                href={contactInfo.socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="glass-card p-3 hover:bg-card/80 transition-colors"
+              >
+                <Github className="w-5 h-5" />
+              </motion.a>
+            )}
+          </div>
         </motion.div>
 
         <motion.form

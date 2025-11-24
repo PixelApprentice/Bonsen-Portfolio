@@ -64,10 +64,21 @@ All colors MUST be HSL.
 
 @layer components {
   .glass-card {
-    @apply bg-card/60 backdrop-blur-md border border-border/50 rounded-lg;
+    @apply bg-card/40 backdrop-blur-xl border border-border/40 rounded-lg shadow-lg;
+    box-shadow: 
+      0 8px 32px 0 rgba(0, 0, 0, 0.37),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
   }
   
   .glass-nav {
-    @apply bg-background/80 backdrop-blur-lg border-b border-border/30;
+    @apply bg-background/70 backdrop-blur-2xl border-b border-border/20;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .glass-strong {
+    @apply bg-card/30 backdrop-blur-2xl border border-border/30 rounded-lg;
+    box-shadow: 
+      0 12px 40px 0 rgba(0, 0, 0, 0.5),
+      inset 0 2px 0 0 rgba(255, 255, 255, 0.08);
   }
 }

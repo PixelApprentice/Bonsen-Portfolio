@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { projects } from "@/data/content";
 
 const Projects = () => {
@@ -37,17 +37,33 @@ const Projects = () => {
                   alt={project.title}
                   loading="lazy"
                   className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  onError={(e) => {
+                    console.error(`Failed to load image: ${project.imageUrl}`);
+                    e.currentTarget.style.display = 'none';
+                  }}
                 />
-                {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute top-4 right-4 p-2 glass-card hover:bg-card/90 transition-colors"
-                  >
-                    <ExternalLink className="w-5 h-5" />
-                  </a>
-                )}
+                <div className="absolute top-4 right-4 flex gap-2">
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 glass-card hover:bg-card/90 transition-colors"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                    </a>
+                  )}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 glass-card hover:bg-card/90 transition-colors"
+                    >
+                      <Github className="w-5 h-5" />
+                    </a>
+                  )}
+                </div>
               </div>
 
               <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
