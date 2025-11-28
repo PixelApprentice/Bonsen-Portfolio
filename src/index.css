@@ -60,6 +60,27 @@ All colors MUST be HSL.
       linear-gradient(to bottom, hsl(var(--grid-color)) 1px, transparent 1px);
     background-size: 40px 40px;
   }
+
+  /* Accessibility: Focus states for keyboard navigation */
+  a:focus,
+  button:focus,
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
 
 @layer components {

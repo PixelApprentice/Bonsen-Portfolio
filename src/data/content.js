@@ -9,7 +9,8 @@ export const profile = {
 };
 
 export const heroData = {
-  headline: "Hi, I'm Bonsen — a Creative Developer.",
+  headline: "Bonsen",
+  kicker: "Creative Developer / Digital Experiences",
   subtext: "I craft fast, elegant digital experiences with clean engineering and modern UI principles. Currently exploring interactive 3D web scenes.",
   imageUrl: "https://res.cloudinary.com/dqichbso7/image/upload/v1763968552/tcxdxzbmsi4yghzeksnq.png",
 };
@@ -37,18 +38,20 @@ export const projects = [
   {
     id: 1,
     title: "PcPass",
-    description: "PC registration management system.",
-    imageUrl: "https://res.cloudinary.com/dqichbso7/image/upload/v1763967425/nmclycpvo07bau5y2ex0.png",
-    tags: ["React", "Management", "System"],
+    description: "A comprehensive PC registration and management system. I built the entire front-end interface with React, designed the user experience, and implemented real-time data management features.",
+    fullDescription: "PC registration management system for tracking and organizing computer assets. Features include user authentication, device registration, status tracking, and administrative dashboards.",
+    role: "Full-stack Developer",
+    tags: ["React", "JavaScript", "Management System"],
     link: null,
     github: null
   },
   {
     id: 2,
     title: "Sekur-Labs",
-    description: "Interactive Cybersecurity Learning Platform.",
-    imageUrl: "https://res.cloudinary.com/dqichbso7/image/upload/v1763966954/nedq7d7ajhcskbyclk4v.png",
-    tags: ["React", "SQLite", "Security"],
+    description: "An interactive cybersecurity learning platform where users can learn security concepts through hands-on labs. I developed the front-end with React and integrated the backend API.",
+    fullDescription: "Interactive platform for cybersecurity education with interactive labs, challenges, and real-time feedback. Built with modern web technologies for an engaging learning experience.",
+    role: "Front-end Developer",
+    tags: ["React", "SQLite", "Security", "Education"],
     link: "https://sekur-labs.vercel.app/",
     github: "https://github.com/PixelApprentice/EVPrototype"
   }
