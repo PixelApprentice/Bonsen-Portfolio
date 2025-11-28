@@ -10,8 +10,10 @@ import { STAGGER_CONTAINER, STAGGER_ITEM, HOVER_SCALE, TAP_SCALE } from "@/const
 const HeroContainer = () => {
   const { scrollToSection } = useScrollNavigation();
 
-  const heroImageClasses = "pointer-events-none absolute bottom-0 right-0 h-[45vh] w-[85vw] sm:h-[55vh] sm:w-[70vw] md:h-[75vh] md:w-[60vw] lg:h-[90vh] lg:w-[45vw] z-10";
+  const heroImageClasses = "pointer-events-none absolute bottom-0 right-0 z-10";
   const heroImageStyle = {
+    width: "clamp(300px, 45vw, 800px)",
+    height: "clamp(400px, 85vh, 90vh)",
     maskImage: "radial-gradient(ellipse 90% 80% at 70% 40%, black 20%, transparent 75%)",
     WebkitMaskImage: "radial-gradient(ellipse 90% 80% at 70% 40%, black 20%, transparent 75%)",
     filter: "drop-shadow(0 40px 120px rgba(0,0,0,0.85))",
@@ -73,8 +75,8 @@ const HeroContent = ({
   onScrollToContact,
 }: HeroContentProps) => {
   return (
-    <div className="absolute inset-0 z-20 flex flex-col justify-between sm:justify-center px-4 sm:px-6 md:px-12 lg:px-24 max-w-full md:max-w-4xl pt-24 pb-8 sm:pt-0 sm:pb-0">
-      <div>
+    <div className="absolute inset-0 z-20 flex flex-col justify-center px-4 md:px-12 lg:px-24 py-8" style={{ maxWidth: "clamp(300px, 55vw, 900px)" }}>
+      <div className="space-y-3 md:space-y-4 lg:space-y-6">
         {/* Kicker */}
         <HeroKicker headline={headline} kicker={kicker} />
 
@@ -83,13 +85,13 @@ const HeroContent = ({
 
         {/* Subtext */}
         <HeroSubtext subtext={subtext} />
-      </div>
 
-      {/* CTA Buttons */}
-      <HeroButtons 
-        onScrollToProjects={onScrollToProjects}
-        onScrollToContact={onScrollToContact}
-      />
+        {/* CTA Buttons */}
+        <HeroButtons 
+          onScrollToProjects={onScrollToProjects}
+          onScrollToContact={onScrollToContact}
+        />
+      </div>
     </div>
   );
 };
@@ -102,7 +104,8 @@ const HeroKicker = ({ headline, kicker }: { headline: string; kicker: string }) 
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay: 0.2 }}
-    className="mb-3 sm:mb-4 md:mb-6 text-[0.6rem] sm:text-xs md:text-sm uppercase tracking-[0.3em] sm:tracking-[0.4em] text-muted-foreground"
+    className="uppercase tracking-[0.3em] md:tracking-[0.4em] text-muted-foreground"
+    style={{ fontSize: "clamp(0.5rem, 1.5vw, 0.875rem)" }}
   >
     {headline} / {kicker}
   </motion.div>
@@ -112,15 +115,15 @@ const HeroKicker = ({ headline, kicker }: { headline: string; kicker: string }) 
  * HeroHeadline - Main headline with character animation
  */
 const HeroHeadline = ({ headline }: { headline: string }) => (
-  <div className="mb-3 sm:mb-4 md:mb-6 overflow-hidden">
+  <div className="overflow-hidden">
     <motion.h1
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-      className="font-bold leading-none tracking-tight bg-gradient-to-r from-primary via-white to-accent bg-clip-text text-transparent"
+      className="font-bold leading-none tracking-tight bg-gradient-to-r from-primary via-white to-accent bg-clip-text text-transparent whitespace-nowrap"
       style={{ 
         fontFamily: "'Inter Tight', sans-serif",
-        fontSize: "clamp(2.5rem, 12vw, 14rem)"
+        fontSize: "clamp(2rem, 8vw, 10rem)"
       }}
     >
       {headline.split(" ").map((word, wordIndex) => {
@@ -159,7 +162,11 @@ const HeroSubtext = ({ subtext }: { subtext: string }) => (
     initial={{ opacity: 0, x: -50 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.8, delay: 0.9 }}
-    className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground mb-0 sm:mb-8 md:mb-10 max-w-full sm:max-w-xl md:max-w-2xl leading-relaxed break-words"
+    className="text-muted-foreground leading-relaxed break-words"
+    style={{ 
+      fontSize: "clamp(0.75rem, 1.8vw, 1.125rem)",
+      maxWidth: "clamp(250px, 90%, 600px)"
+    }}
   >
     {subtext}
   </motion.p>
@@ -178,13 +185,17 @@ const HeroButtons = ({ onScrollToProjects, onScrollToContact }: HeroButtonsProps
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay: 1.1 }}
-    className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 mt-6 sm:mt-0"
+    className="flex flex-wrap gap-2 md:gap-4"
   >
     <motion.button
       whileHover={HOVER_SCALE}
       whileTap={TAP_SCALE}
       onClick={onScrollToProjects}
-      className="px-3 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-4 bg-primary text-primary-foreground rounded-lg text-xs sm:text-sm md:text-base font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+      className="bg-primary text-primary-foreground rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+      style={{
+        fontSize: "clamp(0.75rem, 1.5vw, 1rem)",
+        padding: "clamp(0.5rem, 1.5vw, 1rem) clamp(1rem, 3vw, 2rem)"
+      }}
       aria-label="View my projects"
     >
       View Projects
@@ -193,7 +204,11 @@ const HeroButtons = ({ onScrollToProjects, onScrollToContact }: HeroButtonsProps
       whileHover={HOVER_SCALE}
       whileTap={TAP_SCALE}
       onClick={onScrollToContact}
-      className="px-3 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-4 glass-card text-foreground rounded-lg text-xs sm:text-sm md:text-base font-medium transition-all hover:bg-primary/10 hover:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+      className="glass-card text-foreground rounded-lg font-medium transition-all hover:bg-primary/10 hover:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+      style={{
+        fontSize: "clamp(0.75rem, 1.5vw, 1rem)",
+        padding: "clamp(0.5rem, 1.5vw, 1rem) clamp(1rem, 3vw, 2rem)"
+      }}
       aria-label="Get my resume"
     >
       Get Resume
