@@ -47,7 +47,7 @@ const Navbar = () => {
             whileHover={HOVER_SCALE}
             whileTap={TAP_SCALE}
             onClick={() => scrollToSection("contact")}
-            className="px-6 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+            className="px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 bg-primary text-primary-foreground rounded-lg text-xs sm:text-sm font-medium hover:bg-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
             aria-label="Get in touch"
           >
             Get in Touch
