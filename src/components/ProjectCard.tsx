@@ -37,7 +37,7 @@ export const ProjectCard = ({
       className="glass-card p-6 group cursor-pointer"
     >
       {/* Image Section */}
-      <div className="relative overflow-hidden rounded-lg mb-6">
+      <div className="relative overflow-hidden rounded-lg mb-6 bg-secondary/20">
         <img
           src={imageUrl}
           alt={`${title} project screenshot`}
@@ -45,7 +45,7 @@ export const ProjectCard = ({
           className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
           onError={(e) => {
             console.error(`Failed to load image: ${imageUrl}`);
-            e.currentTarget.style.display = "none";
+            e.currentTarget.src = "https://via.placeholder.com/800x600/161616/4F46E5?text=Project+Image";
           }}
         />
 

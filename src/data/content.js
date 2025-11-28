@@ -31,7 +31,30 @@ export const skills = [
   "Figma",
   "Python",
   "Three.js",
-  "Blender"
+  "Blender",
+  "Linux",
+  "Terminal",
+  "Bash",
+  "Git"
+];
+
+export const experience = [
+  {
+    id: 1,
+    title: "BSc in Computer Science",
+    organization: "Haramaya University",
+    period: "2023 - 2027",
+    type: "Education",
+    description: "Pursuing Bachelor of Science degree in Computer Science, focusing on software engineering and web development."
+  },
+  {
+    id: 2,
+    title: "INSA Summer Camp",
+    organization: "INSA",
+    period: "July - August 2025",
+    type: "Training",
+    description: "Intensive summer training program focused on advanced programming concepts and practical software development."
+  }
 ];
 
 export const projects = [
