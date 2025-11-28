@@ -10,7 +10,7 @@ import { STAGGER_CONTAINER, STAGGER_ITEM, HOVER_SCALE, TAP_SCALE } from "@/const
 const HeroContainer = () => {
   const { scrollToSection } = useScrollNavigation();
 
-  const heroImageClasses = "pointer-events-none absolute bottom-0 right-0 h-[60vh] w-full sm:h-[70vh] sm:w-[70vw] md:h-[85vh] md:w-[55vw] lg:h-[90vh] lg:w-[45vw] z-10";
+  const heroImageClasses = "pointer-events-none absolute bottom-0 right-0 h-[45vh] w-[85vw] sm:h-[55vh] sm:w-[70vw] md:h-[75vh] md:w-[60vw] lg:h-[90vh] lg:w-[45vw] z-10";
   const heroImageStyle = {
     maskImage: "radial-gradient(ellipse 90% 80% at 70% 40%, black 20%, transparent 75%)",
     WebkitMaskImage: "radial-gradient(ellipse 90% 80% at 70% 40%, black 20%, transparent 75%)",
@@ -73,15 +73,17 @@ const HeroContent = ({
   onScrollToContact,
 }: HeroContentProps) => {
   return (
-    <div className="absolute inset-0 z-20 flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-24 max-w-full md:max-w-4xl">
-      {/* Kicker */}
-      <HeroKicker headline={headline} kicker={kicker} />
+    <div className="absolute inset-0 z-20 flex flex-col justify-between sm:justify-center px-4 sm:px-6 md:px-12 lg:px-24 max-w-full md:max-w-4xl pt-24 pb-8 sm:pt-0 sm:pb-0">
+      <div>
+        {/* Kicker */}
+        <HeroKicker headline={headline} kicker={kicker} />
 
-      {/* Headline */}
-      <HeroHeadline headline={headline} />
+        {/* Headline */}
+        <HeroHeadline headline={headline} />
 
-      {/* Subtext */}
-      <HeroSubtext subtext={subtext} />
+        {/* Subtext */}
+        <HeroSubtext subtext={subtext} />
+      </div>
 
       {/* CTA Buttons */}
       <HeroButtons 
@@ -115,7 +117,7 @@ const HeroHeadline = ({ headline }: { headline: string }) => (
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-      className="font-bold leading-none tracking-tight text-white"
+      className="font-bold leading-none tracking-tight bg-gradient-to-r from-primary via-white to-accent bg-clip-text text-transparent"
       style={{ 
         fontFamily: "'Inter Tight', sans-serif",
         fontSize: "clamp(2.5rem, 12vw, 14rem)"
@@ -157,7 +159,7 @@ const HeroSubtext = ({ subtext }: { subtext: string }) => (
     initial={{ opacity: 0, x: -50 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.8, delay: 0.9 }}
-    className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8 md:mb-10 max-w-full sm:max-w-xl md:max-w-2xl leading-relaxed"
+    className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground mb-0 sm:mb-8 md:mb-10 max-w-full sm:max-w-xl md:max-w-2xl leading-relaxed break-words"
   >
     {subtext}
   </motion.p>
@@ -176,13 +178,13 @@ const HeroButtons = ({ onScrollToProjects, onScrollToContact }: HeroButtonsProps
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay: 1.1 }}
-    className="flex flex-wrap gap-3 sm:gap-4"
+    className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 mt-6 sm:mt-0"
   >
     <motion.button
       whileHover={HOVER_SCALE}
       whileTap={TAP_SCALE}
       onClick={onScrollToProjects}
-      className="px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-primary text-primary-foreground rounded-lg text-sm sm:text-base font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+      className="px-3 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-4 bg-primary text-primary-foreground rounded-lg text-xs sm:text-sm md:text-base font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
       aria-label="View my projects"
     >
       View Projects
@@ -191,7 +193,7 @@ const HeroButtons = ({ onScrollToProjects, onScrollToContact }: HeroButtonsProps
       whileHover={HOVER_SCALE}
       whileTap={TAP_SCALE}
       onClick={onScrollToContact}
-      className="px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 glass-card text-foreground rounded-lg text-sm sm:text-base font-medium transition-all hover:bg-primary/10 hover:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+      className="px-3 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-4 glass-card text-foreground rounded-lg text-xs sm:text-sm md:text-base font-medium transition-all hover:bg-primary/10 hover:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
       aria-label="Get my resume"
     >
       Get Resume
