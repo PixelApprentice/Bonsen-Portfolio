@@ -10,10 +10,10 @@ import { STAGGER_CONTAINER, STAGGER_ITEM, HOVER_SCALE, TAP_SCALE } from "@/const
 const HeroContainer = () => {
   const { scrollToSection } = useScrollNavigation();
 
-  const heroImageClasses = "pointer-events-none absolute bottom-0 right-0 h-[80vh] w-[60vw] md:h-[90vh] md:w-[50vw] lg:w-[45vw] z-10";
+  const heroImageClasses = "pointer-events-none absolute bottom-0 right-0 h-[60vh] w-full sm:h-[70vh] sm:w-[70vw] md:h-[85vh] md:w-[55vw] lg:h-[90vh] lg:w-[45vw] z-10";
   const heroImageStyle = {
-    maskImage: "radial-gradient(ellipse 80% 80% at 60% 40%, black 30%, transparent 85%)",
-    WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 60% 40%, black 30%, transparent 85%)",
+    maskImage: "radial-gradient(ellipse 90% 80% at 70% 40%, black 20%, transparent 75%)",
+    WebkitMaskImage: "radial-gradient(ellipse 90% 80% at 70% 40%, black 20%, transparent 75%)",
     filter: "drop-shadow(0 40px 120px rgba(0,0,0,0.85))",
   };
 
@@ -73,7 +73,7 @@ const HeroContent = ({
   onScrollToContact,
 }: HeroContentProps) => {
   return (
-    <div className="absolute inset-y-0 left-0 z-20 flex flex-col justify-center px-6 sm:px-8 md:px-16 lg:px-24 max-w-4xl">
+    <div className="absolute inset-0 z-20 flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-24 max-w-full md:max-w-4xl">
       {/* Kicker */}
       <HeroKicker headline={headline} kicker={kicker} />
 
@@ -100,7 +100,7 @@ const HeroKicker = ({ headline, kicker }: { headline: string; kicker: string }) 
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay: 0.2 }}
-    className="mb-6 text-xs md:text-sm uppercase tracking-[0.4em] text-muted-foreground"
+    className="mb-3 sm:mb-4 md:mb-6 text-[0.6rem] sm:text-xs md:text-sm uppercase tracking-[0.3em] sm:tracking-[0.4em] text-muted-foreground"
   >
     {headline} / {kicker}
   </motion.div>
@@ -110,7 +110,7 @@ const HeroKicker = ({ headline, kicker }: { headline: string; kicker: string }) 
  * HeroHeadline - Main headline with character animation
  */
 const HeroHeadline = ({ headline }: { headline: string }) => (
-  <div className="mb-6 overflow-hidden">
+  <div className="mb-3 sm:mb-4 md:mb-6 overflow-hidden">
     <motion.h1
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ const HeroHeadline = ({ headline }: { headline: string }) => (
       className="font-bold leading-none tracking-tight text-white"
       style={{ 
         fontFamily: "'Inter Tight', sans-serif",
-        fontSize: "clamp(2.5rem, 8vw, 14rem)"
+        fontSize: "clamp(2.5rem, 12vw, 14rem)"
       }}
     >
       {headline.split(" ").map((word, wordIndex) => {
@@ -157,7 +157,7 @@ const HeroSubtext = ({ subtext }: { subtext: string }) => (
     initial={{ opacity: 0, x: -50 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.8, delay: 0.9 }}
-    className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed"
+    className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8 md:mb-10 max-w-full sm:max-w-xl md:max-w-2xl leading-relaxed"
   >
     {subtext}
   </motion.p>
@@ -176,13 +176,13 @@ const HeroButtons = ({ onScrollToProjects, onScrollToContact }: HeroButtonsProps
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay: 1.1 }}
-    className="flex flex-wrap gap-4"
+    className="flex flex-wrap gap-3 sm:gap-4"
   >
     <motion.button
       whileHover={HOVER_SCALE}
       whileTap={TAP_SCALE}
       onClick={onScrollToProjects}
-      className="px-6 sm:px-8 py-3 sm:py-4 bg-primary text-primary-foreground rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+      className="px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-primary text-primary-foreground rounded-lg text-sm sm:text-base font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
       aria-label="View my projects"
     >
       View Projects
@@ -191,10 +191,10 @@ const HeroButtons = ({ onScrollToProjects, onScrollToContact }: HeroButtonsProps
       whileHover={HOVER_SCALE}
       whileTap={TAP_SCALE}
       onClick={onScrollToContact}
-      className="px-6 sm:px-8 py-3 sm:py-4 border border-border/60 text-foreground rounded-lg font-medium transition-colors hover:bg-foreground hover:text-background focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
-      aria-label="Contact me"
+      className="px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 glass-card text-foreground rounded-lg text-sm sm:text-base font-medium transition-all hover:bg-primary/10 hover:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+      aria-label="Get my resume"
     >
-      Contact Me
+      Get Resume
     </motion.button>
   </motion.div>
 );
