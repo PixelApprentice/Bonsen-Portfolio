@@ -12,12 +12,11 @@ const HeroContainer = () => {
 
   const heroImageClasses = "pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-0 z-10";
   const heroImageStyle = {
-    width: "clamp(280px, 85vw, 45vw)",
-    maxWidth: "800px",
-    height: "clamp(350px, 60vh, 90vh)",
-    maskImage: "radial-gradient(ellipse 85% 75% at center bottom, black 30%, transparent 85%)",
-    WebkitMaskImage: "radial-gradient(ellipse 85% 75% at center bottom, black 30%, transparent 85%)",
-    filter: "drop-shadow(0 20px 80px rgba(0,0,0,0.9))",
+    width: "clamp(300px, 90vw, 500px)",
+    maxWidth: "600px",
+    height: "clamp(380px, 70vh, 85vh)",
+    minHeight: "380px",
+    minWidth: "300px",
   };
 
   return (
