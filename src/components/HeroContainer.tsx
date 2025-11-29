@@ -10,47 +10,66 @@ import { STAGGER_CONTAINER, STAGGER_ITEM, HOVER_SCALE, TAP_SCALE } from "@/const
 const HeroContainer = () => {
   const { scrollToSection } = useScrollNavigation();
 
-  const heroImageClasses = "pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-0 z-10";
-  const heroImageStyle = {
-    width: "clamp(280px, 45vw, 500px)",
-    height: "clamp(350px, 65vh, 85vh)",
-    maxWidth: "100%",
-  };
-
   return (
-    <section id="about" className="relative h-screen overflow-hidden pt-16 md:pt-0 scroll-mt-32">
-      {/* Hero Image - Mobile Centered, Desktop Right */}
-      <HeroImage imageUrl={heroData.imageUrl} className={heroImageClasses} style={heroImageStyle} />
+    <section id="about" className="relative min-h-screen overflow-hidden pt-24 pb-12 scroll-mt-32">
+      <div className="container mx-auto px-4 md:px-8 lg:px-16 h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[calc(100vh-8rem)]">
+          {/* Text Content - Left Side */}
+          <HeroContent 
+            headline={heroData.headline}
+            kicker={heroData.kicker}
+            subtext={heroData.subtext}
+            onScrollToProjects={() => scrollToSection("projects")}
+            onScrollToContact={() => scrollToSection("contact")}
+          />
 
-      {/* Text Content */}
-      <HeroContent 
-        headline={heroData.headline}
-        kicker={heroData.kicker}
-        subtext={heroData.subtext}
-        onScrollToProjects={() => scrollToSection("projects")}
-        onScrollToContact={() => scrollToSection("contact")}
-      />
+          {/* Image Content - Right Side */}
+          <HeroImage imageUrl={heroData.imageUrl} />
+        </div>
+      </div>
     </section>
   );
 };
 
 /**
- * HeroImage - Animated hero image component
+ * HeroImage - Animated hero image component with decorative elements
  */
-const HeroImage = ({ imageUrl, className, style }: any) => (
+const HeroImage = ({ imageUrl }: { imageUrl: string }) => (
   <motion.div
-    initial={{ opacity: 0, scale: 0.9, x: 100 }}
-    animate={{ opacity: 1, scale: 1, x: 0 }}
-    transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
-    className={className}
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+    className="relative w-full h-full flex items-center justify-center"
   >
-    <img
-      src={imageUrl}
-      alt="Bonsen - Creative Developer"
-      loading="eager"
-      className="h-full w-full object-contain object-bottom"
-      style={style}
-    />
+    {/* Decorative Background Blob */}
+    <motion.div
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
+      className="absolute inset-0 flex items-center justify-center"
+    >
+      <div className="w-[80%] h-[80%] bg-primary/20 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] blur-3xl" />
+    </motion.div>
+
+    {/* Main Image */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+      className="relative z-10 w-full max-w-[500px] h-[500px] lg:h-[600px]"
+    >
+      <img
+        src={imageUrl}
+        alt="Bonsen - Creative Developer"
+        loading="eager"
+        className="w-full h-full object-contain object-center"
+      />
+    </motion.div>
+
+    {/* Floating Badges */}
+    <FloatingBadge text="React" delay={0.8} className="top-[10%] right-[15%]" />
+    <FloatingBadge text="Three.js" delay={1} className="top-[40%] left-[5%]" />
+    <FloatingBadge text="UI/UX" delay={1.2} className="bottom-[20%] right-[10%]" />
   </motion.div>
 );
 
@@ -73,81 +92,76 @@ const HeroContent = ({
   onScrollToContact,
 }: HeroContentProps) => {
   return (
-    <div className="absolute inset-0 z-20 flex flex-col justify-center px-4 md:px-12 lg:px-24 py-6 md:py-8" style={{ maxWidth: "clamp(280px, 100%, 55vw)" }}>
-      <div className="space-y-2 md:space-y-4 lg:space-y-6 max-w-[90vw] md:max-w-none">
-        {/* Kicker */}
-        <HeroKicker headline={headline} kicker={kicker} />
+    <div className="space-y-6 lg:space-y-8">
+      {/* Greeting */}
+      <HeroGreeting />
 
-        {/* Headline */}
-        <HeroHeadline headline={headline} />
+      {/* Headline with Name */}
+      <HeroHeadline headline={headline} kicker={kicker} />
 
-        {/* Subtext */}
-        <HeroSubtext subtext={subtext} />
+      {/* Subtext */}
+      <HeroSubtext subtext={subtext} />
 
-        {/* CTA Buttons */}
-        <HeroButtons 
-          onScrollToProjects={onScrollToProjects}
-          onScrollToContact={onScrollToContact}
-        />
-      </div>
+      {/* CTA Buttons */}
+      <HeroButtons 
+        onScrollToProjects={onScrollToProjects}
+        onScrollToContact={onScrollToContact}
+      />
     </div>
   );
 };
 
 /**
- * HeroKicker - Editorial kicker text
+ * HeroGreeting - Friendly greeting text
  */
-const HeroKicker = ({ headline, kicker }: { headline: string; kicker: string }) => (
+const HeroGreeting = () => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay: 0.2 }}
-    className="uppercase tracking-[0.3em] md:tracking-[0.4em] text-muted-foreground"
-    style={{ fontSize: "clamp(0.5rem, 1.5vw, 0.875rem)" }}
+    className="inline-block px-4 py-2 border-2 border-primary/30 rounded-lg text-foreground font-medium"
   >
-    {headline} / {kicker}
+    Hello !
   </motion.div>
 );
 
 /**
- * HeroHeadline - Main headline with character animation
+ * HeroHeadline - Main headline with name and role
  */
-const HeroHeadline = ({ headline }: { headline: string }) => (
-  <div className="overflow-hidden">
-    <motion.h1
-      initial={{ opacity: 0, y: 100 }}
+const HeroHeadline = ({ headline, kicker }: { headline: string; kicker: string }) => (
+  <div className="space-y-2">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-      className="font-bold leading-none tracking-tight bg-gradient-to-r from-primary via-white to-accent bg-clip-text text-transparent whitespace-nowrap"
-      style={{ 
-        fontFamily: "'Inter Tight', sans-serif",
-        fontSize: "clamp(2rem, 8vw, 10rem)"
-      }}
+      transition={{ duration: 0.6, delay: 0.4 }}
+      className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground"
     >
-      {headline.split(" ").map((word, wordIndex) => {
-        if (word.toLowerCase().includes("bonsen")) {
-          return (
-            <motion.span
-              key={wordIndex}
-              className="inline-block"
-              initial="hidden"
-              animate="visible"
-              variants={STAGGER_CONTAINER}
-            >
-              {word.split("").map((char, charIndex) => (
-                <motion.span
-                  key={charIndex}
-                  className="inline-block"
-                  variants={STAGGER_ITEM}
-                >
-                  {char}
-                </motion.span>
-              ))}
-            </motion.span>
-          );
-        }
-        return <span key={wordIndex}>{word} </span>;
-      })}
+      I'm{" "}
+      <motion.span
+        initial="hidden"
+        animate="visible"
+        variants={STAGGER_CONTAINER}
+        className="inline-block text-primary"
+      >
+        {headline.split("").map((char, charIndex) => (
+          <motion.span
+            key={charIndex}
+            className="inline-block"
+            variants={STAGGER_ITEM}
+          >
+            {char}
+          </motion.span>
+        ))}
+      </motion.span>
+      ,
+    </motion.div>
+    <motion.h1
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.6 }}
+      className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight"
+    >
+      {kicker}
     </motion.h1>
   </div>
 );
@@ -157,15 +171,10 @@ const HeroHeadline = ({ headline }: { headline: string }) => (
  */
 const HeroSubtext = ({ subtext }: { subtext: string }) => (
   <motion.p
-    initial={{ opacity: 0, x: -50 }}
-    animate={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.8, delay: 0.9 }}
-    className="text-muted-foreground leading-relaxed break-words whitespace-normal"
-    style={{ 
-      fontSize: "clamp(0.8rem, 2vw, 1.125rem)",
-      maxWidth: "clamp(240px, 85vw, 600px)",
-      lineHeight: "1.6"
-    }}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay: 0.8 }}
+    className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-xl"
   >
     {subtext}
   </motion.p>
@@ -183,35 +192,47 @@ const HeroButtons = ({ onScrollToProjects, onScrollToContact }: HeroButtonsProps
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: 1.1 }}
-    className="flex flex-wrap gap-3 md:gap-4 pt-2"
+    transition={{ duration: 0.6, delay: 1 }}
+    className="flex flex-wrap gap-4 pt-4"
   >
     <motion.button
       whileHover={HOVER_SCALE}
       whileTap={TAP_SCALE}
       onClick={onScrollToProjects}
-      className="bg-primary text-primary-foreground rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background shadow-lg hover:shadow-xl"
-      style={{
-        fontSize: "clamp(0.8rem, 1.8vw, 1rem)",
-        padding: "clamp(0.6rem, 1.8vw, 1rem) clamp(1.2rem, 3.5vw, 2rem)"
-      }}
+      className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-primary/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
       aria-label="View my projects"
     >
-      View Projects
+      Hire Me
     </motion.button>
     <motion.button
       whileHover={HOVER_SCALE}
       whileTap={TAP_SCALE}
       onClick={onScrollToContact}
-      className="glass-card text-foreground rounded-lg font-medium transition-all hover:bg-primary/10 hover:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
-      style={{
-        fontSize: "clamp(0.8rem, 1.8vw, 1rem)",
-        padding: "clamp(0.6rem, 1.8vw, 1rem) clamp(1.2rem, 3.5vw, 2rem)"
-      }}
+      className="px-8 py-3 border-2 border-border text-foreground rounded-lg font-medium transition-all hover:bg-primary/5 hover:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
       aria-label="Get my resume"
     >
       Get Resume
     </motion.button>
+  </motion.div>
+);
+
+/**
+ * FloatingBadge - Animated floating skill badge
+ */
+interface FloatingBadgeProps {
+  text: string;
+  delay: number;
+  className: string;
+}
+
+const FloatingBadge = ({ text, delay, className }: FloatingBadgeProps) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5, delay, ease: "easeOut" }}
+    className={`absolute ${className} px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm font-medium shadow-lg z-20 hidden lg:block`}
+  >
+    {text}
   </motion.div>
 );
 
