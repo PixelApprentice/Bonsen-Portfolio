@@ -10,18 +10,19 @@ import { STAGGER_CONTAINER, STAGGER_ITEM, HOVER_SCALE, TAP_SCALE } from "@/const
 const HeroContainer = () => {
   const { scrollToSection } = useScrollNavigation();
 
-  const heroImageClasses = "pointer-events-none absolute bottom-0 right-0 z-10";
+  const heroImageClasses = "pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-0 z-10";
   const heroImageStyle = {
-    width: "clamp(300px, 45vw, 800px)",
-    height: "clamp(400px, 85vh, 90vh)",
-    maskImage: "radial-gradient(ellipse 90% 80% at 70% 40%, black 20%, transparent 75%)",
-    WebkitMaskImage: "radial-gradient(ellipse 90% 80% at 70% 40%, black 20%, transparent 75%)",
-    filter: "drop-shadow(0 40px 120px rgba(0,0,0,0.85))",
+    width: "clamp(280px, 85vw, 45vw)",
+    maxWidth: "800px",
+    height: "clamp(350px, 60vh, 90vh)",
+    maskImage: "radial-gradient(ellipse 85% 75% at center bottom, black 30%, transparent 85%)",
+    WebkitMaskImage: "radial-gradient(ellipse 85% 75% at center bottom, black 30%, transparent 85%)",
+    filter: "drop-shadow(0 20px 80px rgba(0,0,0,0.9))",
   };
 
   return (
-    <section id="about" className="relative h-screen overflow-hidden scroll-mt-32">
-      {/* Hero Image */}
+    <section id="about" className="relative h-screen overflow-hidden pt-16 md:pt-0 scroll-mt-32">
+      {/* Hero Image - Mobile Centered, Desktop Right */}
       <HeroImage imageUrl={heroData.imageUrl} className={heroImageClasses} style={heroImageStyle} />
 
       {/* Text Content */}
@@ -75,8 +76,8 @@ const HeroContent = ({
   onScrollToContact,
 }: HeroContentProps) => {
   return (
-    <div className="absolute inset-0 z-20 flex flex-col justify-center px-4 md:px-12 lg:px-24 py-8" style={{ maxWidth: "clamp(300px, 55vw, 900px)" }}>
-      <div className="space-y-3 md:space-y-4 lg:space-y-6">
+    <div className="absolute inset-0 z-20 flex flex-col justify-center px-4 md:px-12 lg:px-24 py-6 md:py-8" style={{ maxWidth: "clamp(280px, 100%, 55vw)" }}>
+      <div className="space-y-2 md:space-y-4 lg:space-y-6 max-w-[90vw] md:max-w-none">
         {/* Kicker */}
         <HeroKicker headline={headline} kicker={kicker} />
 
@@ -162,10 +163,11 @@ const HeroSubtext = ({ subtext }: { subtext: string }) => (
     initial={{ opacity: 0, x: -50 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.8, delay: 0.9 }}
-    className="text-muted-foreground leading-relaxed break-words"
+    className="text-muted-foreground leading-relaxed break-words whitespace-normal"
     style={{ 
-      fontSize: "clamp(0.75rem, 1.8vw, 1.125rem)",
-      maxWidth: "clamp(250px, 90%, 600px)"
+      fontSize: "clamp(0.8rem, 2vw, 1.125rem)",
+      maxWidth: "clamp(240px, 85vw, 600px)",
+      lineHeight: "1.6"
     }}
   >
     {subtext}
@@ -185,16 +187,16 @@ const HeroButtons = ({ onScrollToProjects, onScrollToContact }: HeroButtonsProps
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay: 1.1 }}
-    className="flex flex-wrap gap-2 md:gap-4"
+    className="flex flex-wrap gap-3 md:gap-4 pt-2"
   >
     <motion.button
       whileHover={HOVER_SCALE}
       whileTap={TAP_SCALE}
       onClick={onScrollToProjects}
-      className="bg-primary text-primary-foreground rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+      className="bg-primary text-primary-foreground rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background shadow-lg hover:shadow-xl"
       style={{
-        fontSize: "clamp(0.75rem, 1.5vw, 1rem)",
-        padding: "clamp(0.5rem, 1.5vw, 1rem) clamp(1rem, 3vw, 2rem)"
+        fontSize: "clamp(0.8rem, 1.8vw, 1rem)",
+        padding: "clamp(0.6rem, 1.8vw, 1rem) clamp(1.2rem, 3.5vw, 2rem)"
       }}
       aria-label="View my projects"
     >
@@ -206,8 +208,8 @@ const HeroButtons = ({ onScrollToProjects, onScrollToContact }: HeroButtonsProps
       onClick={onScrollToContact}
       className="glass-card text-foreground rounded-lg font-medium transition-all hover:bg-primary/10 hover:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
       style={{
-        fontSize: "clamp(0.75rem, 1.5vw, 1rem)",
-        padding: "clamp(0.5rem, 1.5vw, 1rem) clamp(1rem, 3vw, 2rem)"
+        fontSize: "clamp(0.8rem, 1.8vw, 1rem)",
+        padding: "clamp(0.6rem, 1.8vw, 1rem) clamp(1.2rem, 3.5vw, 2rem)"
       }}
       aria-label="Get my resume"
     >
