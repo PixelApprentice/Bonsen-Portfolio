@@ -12,11 +12,9 @@ const HeroContainer = () => {
 
   const heroImageClasses = "pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-0 z-10";
   const heroImageStyle = {
-    width: "clamp(300px, 90vw, 500px)",
-    maxWidth: "600px",
-    height: "clamp(380px, 70vh, 85vh)",
-    minHeight: "380px",
-    minWidth: "300px",
+    width: "clamp(280px, 45vw, 500px)",
+    height: "clamp(350px, 65vh, 85vh)",
+    maxWidth: "100%",
   };
 
   return (
@@ -50,7 +48,7 @@ const HeroImage = ({ imageUrl, className, style }: any) => (
       src={imageUrl}
       alt="Bonsen - Creative Developer"
       loading="eager"
-      className="h-full w-full object-contain md:object-cover object-top"
+      className="h-full w-full object-contain object-bottom"
       style={style}
     />
   </motion.div>
