@@ -66,10 +66,6 @@ const HeroImage = ({ imageUrl }: { imageUrl: string }) => (
       />
     </motion.div>
 
-    {/* Floating Badges */}
-    <FloatingBadge text="React" delay={0.8} className="top-[10%] right-[15%]" />
-    <FloatingBadge text="Three.js" delay={1} className="top-[40%] left-[5%]" />
-    <FloatingBadge text="UI/UX" delay={1.2} className="bottom-[20%] right-[10%]" />
   </motion.div>
 );
 
@@ -213,26 +209,6 @@ const HeroButtons = ({ onScrollToProjects, onScrollToContact }: HeroButtonsProps
     >
       Get Resume
     </motion.button>
-  </motion.div>
-);
-
-/**
- * FloatingBadge - Animated floating skill badge
- */
-interface FloatingBadgeProps {
-  text: string;
-  delay: number;
-  className: string;
-}
-
-const FloatingBadge = ({ text, delay, className }: FloatingBadgeProps) => (
-  <motion.div
-    initial={{ opacity: 0, scale: 0 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.5, delay, ease: "easeOut" }}
-    className={`absolute ${className} px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm font-medium shadow-lg z-20 hidden lg:block`}
-  >
-    {text}
   </motion.div>
 );
 
