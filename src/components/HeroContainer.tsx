@@ -60,8 +60,10 @@ const HeroImage = ({ imageUrl }: { imageUrl: string }) => (
     >
       <img
         src={imageUrl}
-        alt="Bonsen - Creative Developer"
+        alt="Bonsen Fuad - UI/UX Designer and Software Engineer"
         loading="eager"
+        decoding="async"
+        fetchPriority="high"
         className="w-full h-full object-contain object-center"
       />
     </motion.div>

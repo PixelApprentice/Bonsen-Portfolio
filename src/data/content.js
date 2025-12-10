@@ -1,59 +1,71 @@
 // All content and data for the portfolio
 export const profile = {
   name: "Bonsen",
-  role: "Creative Developer",
+  role: "UI/UX Designer & Software Engineer",
   shortBio: "I craft fast, elegant digital experiences with clean engineering and modern UI principles.",
-  location: "Ethiopia",
+  location: "Dire Dawa, Ethiopia",
+  phone: "+251949811894",
   resumeUrl: "",
   profileImage: "https://res.cloudinary.com/dqichbso7/image/upload/v1763968552/tcxdxzbmsi4yghzeksnq.png"
 };
 
 export const heroData = {
   headline: "Bonsen",
-  kicker: "Creative Developer / Digital Experiences",
-  subtext: "I craft fast, elegant digital experiences with clean engineering and modern UI principles. Currently exploring interactive 3D web scenes.",
+  kicker: "UI/UX Designer & Software Engineer",
+  subtext: "I craft fast, elegant digital experiences with clean engineering and modern UI principles. Currently exploring interactive 3D web scenes and cyber security.",
   imageUrl: "https://res.cloudinary.com/dqichbso7/image/upload/v1763968552/tcxdxzbmsi4yghzeksnq.png",
 };
 
 export const about = {
   title: "About Me",
   description: [
-    "I'm a Creative Developer passionate about building meaningful digital experiences.",
-    "Currently exploring 3D web experiences using Three.js and R3F."
+    "I'm a UI/UX Designer and Software Engineer passionate about building meaningful digital experiences.",
+    "Currently exploring 3D web experiences using Three.js, Blender, and diving deep into cyber security."
   ]
 };
 
 export const skills = [
+  "JavaScript",
+  "Three.js",
+  "Python",
+  "HTML & CSS",
+  "Blender",
+  "Figma",
   "React",
   "Tailwind",
-  "JavaScript",
   "Firebase",
-  "Figma",
-  "Python",
-  "Three.js",
-  "Blender",
   "Linux",
-  "Terminal",
-  "Bash",
-  "Git"
+  "Git",
+  "Bash"
 ];
 
 export const experience = [
   {
     id: 1,
-    title: "BSc in Computer Science",
+    title: "BSc in Software Engineering",
     organization: "Haramaya University",
-    period: "2023 - 2027",
+    period: "2022 - 2027",
+    location: "Haramaya, Dire Dawa",
     type: "Education",
-    description: "Pursuing Bachelor of Science degree in Computer Science, focusing on software engineering and web development."
+    description: "Pursuing Bachelor of Science degree in Software Engineering, focusing on software development and system design."
   },
   {
     id: 2,
-    title: "INSA Summer Camp",
+    title: "Cyber Security Division Training",
+    organization: "INSA Summer Camp",
+    period: "July - August 2025",
+    location: "Addis Abeba",
+    type: "Training",
+    description: "Intensive training on cyber security fundamentals, cryptography, and blue team/green team operations."
+  },
+  {
+    id: 3,
+    title: "Trainee",
     organization: "INSA",
     period: "July - August 2025",
-    type: "Training",
-    description: "Intensive summer training program focused on advanced programming concepts and practical software development."
+    location: "Addis Abeba",
+    type: "Experience",
+    description: "Had training on cyber security fundamentals, cryptography and on blue team and green team operations."
   }
 ];
 
@@ -71,7 +83,7 @@ export const projects = [
   {
     id: 2,
     title: "Sekur-Labs",
-    description: "An interactive cybersecurity learning platform where users can learn security concepts through hands-on labs. I developed the front-end with React and integrated the backend API.",
+    description: "A comprehensive cyber security platform that teaches people cyber security through interactive labs and hands-on learning experiences.",
     fullDescription: "Interactive platform for cybersecurity education with interactive labs, challenges, and real-time feedback. Built with modern web technologies for an engaging learning experience.",
     role: "Front-end Developer",
     tags: ["React", "SQLite", "Security", "Education"],
@@ -80,10 +92,28 @@ export const projects = [
   }
 ];
 
+export const organizations = [
+  {
+    id: 1,
+    name: "HUCISA",
+    role: "Co-founder",
+    description: "Served as one of the co-founders of the organization."
+  }
+];
+
+export const languages = ["English", "Afan Oromo", "Amharic", "Arabic"];
+
+export const interests = [
+  "Drawing",
+  "Automobile Design",
+  "Political Economics"
+];
+
 export const contactInfo = {
   title: "Let's Connect",
   description: "Have a project in mind? Let's discuss how we can work together.",
   email: "bonsenfuad@gmail.com",
+  phone: "+251949811894",
   socials: {
     github: "https://github.com/PixelApprentice"
   }
