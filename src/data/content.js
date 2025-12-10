@@ -1,7 +1,7 @@
 // All content and data for the portfolio
 export const profile = {
   name: "Bonsen",
-  role: "UI/UX Designer & Software Engineer",
+  role: "UI/UX Designer & Developer",
   shortBio: "I craft fast, elegant digital experiences with clean engineering and modern UI principles.",
   location: "Dire Dawa, Ethiopia",
   phone: "+251949811894",
@@ -11,7 +11,7 @@ export const profile = {
 
 export const heroData = {
   headline: "Bonsen",
-  kicker: "UI/UX Designer & Software Engineer",
+  kicker: "UI/UX Designer & Developer",
   subtext: "I craft fast, elegant digital experiences with clean engineering and modern UI principles. Currently exploring interactive 3D web scenes and cyber security.",
   imageUrl: "https://res.cloudinary.com/dqichbso7/image/upload/v1763968552/tcxdxzbmsi4yghzeksnq.png",
 };
@@ -48,24 +48,6 @@ export const experience = [
     location: "Haramaya, Dire Dawa",
     type: "Education",
     description: "Pursuing Bachelor of Science degree in Software Engineering, focusing on software development and system design."
-  },
-  {
-    id: 2,
-    title: "Cyber Security Division Training",
-    organization: "INSA Summer Camp",
-    period: "July - August 2025",
-    location: "Addis Abeba",
-    type: "Training",
-    description: "Intensive training on cyber security fundamentals, cryptography, and blue team/green team operations."
-  },
-  {
-    id: 3,
-    title: "Trainee",
-    organization: "INSA",
-    period: "July - August 2025",
-    location: "Addis Abeba",
-    type: "Experience",
-    description: "Had training on cyber security fundamentals, cryptography and on blue team and green team operations."
   }
 ];
 
