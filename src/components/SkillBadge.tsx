@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { SCALE_IN } from "@/constants/animations";
 
 interface SkillBadgeProps {
   skill: string;
@@ -8,17 +7,13 @@ interface SkillBadgeProps {
 
 /**
  * Reusable skill badge component
- * Encapsulates skill display with animations
+ * Optimized for marquee animation with hover effects
  */
-export const SkillBadge = ({ skill, delay = 0 }: SkillBadgeProps) => {
+export const SkillBadge = ({ skill }: SkillBadgeProps) => {
   return (
     <motion.div
-      initial={SCALE_IN.initial}
-      whileInView={SCALE_IN.animate}
-      viewport={{ once: true }}
-      transition={{ ...SCALE_IN.transition, delay }}
       whileHover={{ scale: 1.1, y: -5 }}
-      className="glass-card px-6 py-3 text-sm font-medium cursor-default"
+      className="glass-card px-6 py-3 text-sm font-medium cursor-default shrink-0 select-none"
     >
       {skill}
     </motion.div>
