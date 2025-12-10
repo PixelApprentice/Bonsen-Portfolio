@@ -75,6 +75,7 @@ const Contact = () => {
 
         <SocialLinks
           email={contactInfo.email}
+          phone={contactInfo.phone}
           github={contactInfo.socials?.github}
         />
 
