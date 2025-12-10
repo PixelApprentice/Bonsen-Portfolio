@@ -48,6 +48,15 @@ export const experience = [
     location: "Haramaya, Dire Dawa",
     type: "Education",
     description: "Pursuing Bachelor of Science degree in Software Engineering, focusing on software development and system design."
+  },
+  {
+    id: 2,
+    title: "Cyber Security Trainee",
+    organization: "INSA",
+    period: "July - August 2025",
+    location: "Addis Abeba",
+    type: "Training",
+    description: "Intensive training on cyber security fundamentals, cryptography, and blue team/green team operations."
   }
 ];
 
@@ -55,10 +64,10 @@ export const projects = [
   {
     id: 1,
     title: "PcPass",
-    description: "A comprehensive PC registration and management system. I built the entire front-end interface with React, designed the user experience, and implemented real-time data management features.",
-    fullDescription: "PC registration management system for tracking and organizing computer assets. Features include user authentication, device registration, status tracking, and administrative dashboards.",
-    role: "Full-stack Developer",
-    tags: ["React", "JavaScript", "Management System"],
+    description: "A comprehensive PC registration and management system. I designed the complete user interface and experience in Figma, creating intuitive workflows and a modern visual design system.",
+    fullDescription: "PC registration management system for tracking and organizing computer assets. Led the UI/UX design process including wireframes, prototypes, and high-fidelity mockups in Figma.",
+    role: "UI/UX Designer",
+    tags: ["Figma", "UI/UX", "Design System"],
     link: null,
     github: null
   },
