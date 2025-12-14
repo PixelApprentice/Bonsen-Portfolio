@@ -42,10 +42,11 @@ export const ProjectCard = ({
           src={imageUrl}
           alt={`${title} project screenshot`}
           loading="lazy"
+          decoding="async"
+          sizes="(min-width: 1024px) 540px, (min-width: 768px) 50vw, 100vw"
           className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
           onError={(e) => {
-            console.error(`Failed to load image: ${imageUrl}`);
-            e.currentTarget.src = "https://via.placeholder.com/800x600/161616/4F46E5?text=Project+Image";
+            (e.currentTarget as HTMLImageElement).src = "https://via.placeholder.com/800x600/161616/4F46E5?text=Project+Image";
           }}
         />
 

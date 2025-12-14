@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import { heroData } from "@/data/content";
 import { useScrollNavigation } from "@/hooks/useScrollNavigation";
 import { STAGGER_CONTAINER, STAGGER_ITEM, HOVER_SCALE, TAP_SCALE } from "@/constants/animations";
+import { RESUME_CONFIG } from "@/constants/config";
+import { downloadFile } from "@/utils/helpers";
+
 
 /**
  * HeroContainer - Main hero section with animated text and image
@@ -15,7 +18,7 @@ const HeroContainer = () => {
       <div className="container mx-auto px-4 md:px-8 lg:px-16 h-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[calc(100vh-8rem)]">
           {/* Text Content - Left Side */}
-          <HeroContent 
+          <HeroContent
             headline={heroData.headline}
             kicker={heroData.kicker}
             subtext={heroData.subtext}
@@ -101,7 +104,7 @@ const HeroContent = ({
       <HeroSubtext subtext={subtext} />
 
       {/* CTA Buttons */}
-      <HeroButtons 
+      <HeroButtons
         onScrollToProjects={onScrollToProjects}
         onScrollToContact={onScrollToContact}
       />
@@ -186,32 +189,38 @@ interface HeroButtonsProps {
   onScrollToContact: () => void;
 }
 
-const HeroButtons = ({ onScrollToProjects, onScrollToContact }: HeroButtonsProps) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: 1 }}
-    className="flex flex-wrap gap-4 pt-4"
-  >
-    <motion.button
-      whileHover={HOVER_SCALE}
-      whileTap={TAP_SCALE}
-      onClick={onScrollToProjects}
-      className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-primary/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
-      aria-label="View my projects"
+const HeroButtons = ({ onScrollToProjects, onScrollToContact }: HeroButtonsProps) => {
+  const handleResumeDownload = () => {
+    downloadFile(RESUME_CONFIG.url, RESUME_CONFIG.filename);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 1 }}
+      className="flex flex-wrap gap-4 pt-4"
     >
-      Hire Me
-    </motion.button>
-    <motion.button
-      whileHover={HOVER_SCALE}
-      whileTap={TAP_SCALE}
-      onClick={onScrollToContact}
-      className="px-8 py-3 border-2 border-border text-foreground rounded-lg font-medium transition-all hover:bg-primary/5 hover:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
-      aria-label="Get my resume"
-    >
-      Get Resume
-    </motion.button>
-  </motion.div>
-);
+      <motion.button
+        whileHover={HOVER_SCALE}
+        whileTap={TAP_SCALE}
+        onClick={onScrollToProjects}
+        className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-primary/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+        aria-label="View my projects"
+      >
+        View Projects
+      </motion.button>
+      <motion.button
+        whileHover={HOVER_SCALE}
+        whileTap={TAP_SCALE}
+        onClick={handleResumeDownload}
+        className="px-8 py-3 border-2 border-border text-foreground rounded-lg font-medium transition-all hover:bg-primary/5 hover:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+        aria-label="Download my resume"
+      >
+        Download Resume
+      </motion.button>
+    </motion.div>
+  );
+};
 
 export default HeroContainer;
