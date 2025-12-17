@@ -4,7 +4,7 @@ import { ProjectCard } from "./ProjectCard";
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-24 px-6 scroll-mt-32">
+    <section id="projects" className="py-16 px-6 scroll-mt-32">
       <div className="container mx-auto max-w-6xl">
         <SectionHeader
           title="Featured Projects"

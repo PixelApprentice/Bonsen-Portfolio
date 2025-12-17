@@ -16,7 +16,7 @@ const getIcon = (type: string) => {
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-24 px-6 scroll-mt-32">
+    <section id="experience" className="py-16 px-6 scroll-mt-32">
       <div className="container mx-auto max-w-6xl">
         <SectionHeader
           title="Education & Experience"
@@ -38,24 +38,24 @@ const Experience = () => {
                 <div className="p-3 glass-strong rounded-lg shrink-0">
                   {getIcon(item.type)}
                 </div>
-                
+
                 <div className="flex-1 min-w-0">
                   <span className="inline-block px-2 py-0.5 text-xs font-medium bg-primary/20 text-primary rounded mb-2">
                     {item.type}
                   </span>
-                  
+
                   <h3 className="text-lg font-bold group-hover:text-primary transition-colors line-clamp-2">
                     {item.title}
                   </h3>
-                  
+
                   <p className="text-sm text-primary font-medium mt-1">
                     {item.organization}
                   </p>
-                  
+
                   <p className="text-xs text-muted-foreground mt-1 uppercase tracking-wider">
                     {item.period}
                   </p>
-                  
+
                   <p className="text-sm text-muted-foreground leading-relaxed mt-3">
                     {item.description}
                   </p>

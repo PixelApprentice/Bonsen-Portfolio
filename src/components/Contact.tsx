@@ -54,7 +54,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 mb-20 scroll-mt-32">
+    <section id="contact" className="py-16 px-6 mb-20 scroll-mt-32">
       <div className="container mx-auto max-w-2xl">
         <SectionHeader
           title={contactInfo.title}

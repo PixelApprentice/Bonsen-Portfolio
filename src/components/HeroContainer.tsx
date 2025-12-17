@@ -142,17 +142,21 @@ const HeroContent = ({
   );
 };
 
-/**
- * HeroGreeting - Friendly greeting text
- */
 const HeroGreeting = () => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay: 0.2 }}
-    className="inline-block px-4 py-2 border-2 border-primary/30 rounded-lg text-foreground font-medium"
+    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/50 border border-primary/20 backdrop-blur-sm shadow-sm hover:border-primary/50 transition-colors"
   >
-    Hello !
+    <span className="text-foreground font-medium">Hello there</span>
+    <motion.span
+      animate={{ rotate: [0, 14, -8, 14, -4, 10, 0, 0] }}
+      transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 1 }}
+      className="origin-[70%_70%] inline-block"
+    >
+      👋
+    </motion.span>
   </motion.div>
 );
 

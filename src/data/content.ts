@@ -63,22 +63,53 @@ export interface ContactInfo {
   };
 }
 
-export const profile: Profile = data.profile as Profile;
+// Safe data access helpers
+const getHeroData = (): HeroData => (data as any)?.heroData || {
+  headline: "Bonsen",
+  kicker: "UI/UX Designer",
+  subtext: "Portfolio",
+  imageUrl: ""
+};
 
-export const heroData: HeroData = data.heroData as HeroData;
+const getProfile = (): Profile => (data as any)?.profile || {
+  name: "Bonsen",
+  role: "Developer",
+  shortBio: "",
+  location: "",
+  phone: "",
+  resumeUrl: "",
+  profileImage: ""
+};
 
-export const about: About = data.about as About;
+const getAbout = (): About => (data as any)?.about || {
+  title: "About",
+  description: []
+};
 
-export const skills: string[] = data.skills as string[];
+const getContactInfo = (): ContactInfo => (data as any)?.contactInfo || {
+  title: "Contact",
+  description: "",
+  email: "",
+  phone: "",
+  socials: { github: "" }
+};
 
-export const experience: Experience[] = data.experience as Experience[];
+export const profile: Profile = getProfile();
 
-export const projects: Project[] = data.projects as Project[];
+export const heroData: HeroData = getHeroData();
 
-export const organizations: Organization[] = data.organizations as Organization[];
+export const about: About = getAbout();
 
-export const languages: string[] = data.languages as string[];
+export const skills: string[] = (data as any)?.skills || [];
 
-export const interests: string[] = data.interests as string[];
+export const experience: Experience[] = (data as any)?.experience || [];
 
-export const contactInfo: ContactInfo = data.contactInfo as ContactInfo;
+export const projects: Project[] = (data as any)?.projects || [];
+
+export const organizations: Organization[] = (data as any)?.organizations || [];
+
+export const languages: string[] = (data as any)?.languages || [];
+
+export const interests: string[] = (data as any)?.interests || [];
+
+export const contactInfo: ContactInfo = getContactInfo();
