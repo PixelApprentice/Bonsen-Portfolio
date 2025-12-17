@@ -1,3 +1,4 @@
+import * as React from "react";
 import { motion } from "framer-motion";
 import { heroData } from "@/data/content";
 import { useScrollNavigation } from "@/hooks/useScrollNavigation";
@@ -158,16 +159,18 @@ const HeroGreeting = () => (
 /**
  * HeroHeadline - Main headline with name and typing animation for role
  */
+const roles = [
+  "UI/UX Designer",
+  "Software Engineer",
+  "Developer"
+];
+
 const HeroHeadline = ({ headline }: { headline: string; kicker: string }) => {
   const [displayedText, setDisplayedText] = React.useState("");
   const [currentRoleIndex, setCurrentRoleIndex] = React.useState(0);
   const [isDeleting, setIsDeleting] = React.useState(false);
 
-  const roles = [
-    "UI/UX Designer",
-    "Software Engineer",
-    "Developer"
-  ];
+
 
   React.useEffect(() => {
     const currentRole = roles[currentRoleIndex];
@@ -196,7 +199,7 @@ const HeroHeadline = ({ headline }: { headline: string; kicker: string }) => {
     }, typingSpeed);
 
     return () => clearTimeout(timer);
-  }, [displayedText, currentRoleIndex, isDeleting, roles]);
+  }, [displayedText, currentRoleIndex, isDeleting]);
 
   return (
     <div className="space-y-2">
@@ -229,7 +232,7 @@ const HeroHeadline = ({ headline }: { headline: string; kicker: string }) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.6 }}
-        className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-[hsl(210,100%,70%)]"
+        className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-[hsl(243,85%,75%)]"
       >
         {displayedText}
         <span className="animate-pulse">|</span>

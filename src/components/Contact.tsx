@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 import { contactInfo } from "@/data/content";
 import { useFormValidation } from "@/hooks/useFormValidation";
 import { VALIDATION_RULES, FORM_MESSAGES } from "@/constants/validation";
@@ -10,7 +10,6 @@ import { SectionHeader } from "./SectionHeader";
 import { SocialLinks } from "./SocialLinks";
 
 const Contact = () => {
-  const { toast } = useToast();
   const {
     formData,
     errors,
@@ -28,10 +27,8 @@ const Contact = () => {
     e.preventDefault();
 
     if (!validateForm()) {
-      toast({
-        title: "Validation Error",
+      toast.error("Validation Error", {
         description: FORM_MESSAGES.validationError,
-        variant: "destructive",
       });
       return;
     }
@@ -41,18 +38,15 @@ const Contact = () => {
     try {
       // Contact form submission ready for backend integration
       // For now, show success message
-      toast({
-        title: "Message Sent!",
+      toast.success("Message Sent!", {
         description: FORM_MESSAGES.submitSuccess,
       });
 
       resetForm();
     } catch (error) {
       console.error("Form submission error:", error);
-      toast({
-        title: "Error",
+      toast.error("Error", {
         description: FORM_MESSAGES.submitError,
-        variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
