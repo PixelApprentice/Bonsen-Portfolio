@@ -40,16 +40,16 @@ class ErrorBoundary extends Component<Props, State> {
                             <p className="text-muted-foreground">
                                 We encountered an unexpected error. Please try refreshing the page.
                             </p>
-                            <p className="text-xs text-muted-foreground/50 mt-2">Debug Mode: v2 - Logs Active</p>
+                            <p className="text-xs text-muted-foreground/50 mt-2">Debug Mode: v3 - High Contrast Logs</p>
                         </div>
 
                         {this.state.error && (
-                            <div className="mt-4 p-4 bg-destructive/10 border border-destructive/20 rounded-lg text-left overflow-auto max-h-[80vh]">
-                                <p className="text-sm font-bold text-destructive mb-2">Debug Error Info:</p>
-                                <p className="text-sm font-mono text-destructive break-all">
+                            <div className="mt-4 p-4 rounded-lg text-left overflow-auto max-h-[80vh]" style={{ backgroundColor: '#fff0f0', border: '2px solid red', color: 'red' }}>
+                                <p className="text-sm font-bold mb-2">Debug Error Info (v3):</p>
+                                <p className="text-sm font-mono break-all font-bold">
                                     {this.state.error.toString()}
                                 </p>
-                                <pre className="text-xs font-mono text-destructive/80 mt-2 whitespace-pre-wrap">
+                                <pre className="text-xs font-mono mt-2 whitespace-pre-wrap text-black">
                                     {this.state.error.stack}
                                 </pre>
                             </div>
