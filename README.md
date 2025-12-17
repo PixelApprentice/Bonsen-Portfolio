@@ -58,7 +58,7 @@ src/
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/PixelApprentice/monochrome-canvas.git
 cd monochrome-canvas
 
 # Install dependencies
@@ -89,14 +89,17 @@ This project is optimized for deployment on Vercel:
 
 The build output is in the `dist` folder and can be deployed to any static hosting service.
 
-## Features
+## Features & Recent Updates
 
 - **Responsive Design** - Optimized for all screen sizes
 - **Smooth Animations** - Engaging interactions with Framer Motion
 - **Accessibility** - WCAG compliant with semantic HTML and ARIA attributes
 - **SEO Optimized** - Meta tags, Open Graph, and structured data
 - **Performance** - Fast load times with code splitting and lazy loading
-- **Error Handling** - Graceful error boundaries for stability
+- **Stability** - Robust data handling with strict safety guards against missing content
+- **Deployment Ready** - Verified Vercel configuration with "Debug Mode" checks
+- **Creative UI** - Interactive elements like the "Waving Hello" animation
+- **Error Handling** - High-visibility Error Boundaries for rapid production debugging
 
 ## License
 
