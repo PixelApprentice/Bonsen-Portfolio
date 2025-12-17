@@ -43,6 +43,8 @@ export const ProjectCard = ({
           alt={`${title} project screenshot`}
           loading="lazy"
           decoding="async"
+          width="800"
+          height="600"
           sizes="(min-width: 1024px) 540px, (min-width: 768px) 50vw, 100vw"
           className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
           onError={(e) => {

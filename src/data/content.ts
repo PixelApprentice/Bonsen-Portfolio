@@ -59,6 +59,7 @@ export interface ContactInfo {
   phone: string;
   socials: {
     github: string;
+    telegram?: string;
   };
 }
 

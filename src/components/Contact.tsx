@@ -71,6 +71,7 @@ const Contact = () => {
           email={contactInfo.email}
           phone={contactInfo.phone}
           github={contactInfo.socials?.github}
+          telegram={contactInfo.socials?.telegram}
         />
 
         <motion.form
