@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // All content and data for the portfolio (typed exports)
 import data from "./site-data.json";
 
